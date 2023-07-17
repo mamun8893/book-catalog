@@ -26,3 +26,62 @@ body {
   padding: 20px 20px;
   color: #19110b;
 }
+
+.banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 36.75rem;
+  display: flex;
+  align-items: center;
+}
+.banner-wrapper {
+  display: flex;
+}
+
+.banner-left {
+  flex: 0 0 auto;
+  width: 50%;
+}
+.banner-left p {
+  color: #beb4b4;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.banner-left h2 {
+  font-size: 3.5rem;
+  color: #161619;
+  margin: 0px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.banner-left h2 span {
+  font-weight: 700 !important;
+}
+.banner-left a {
+  padding: 0.75rem 3rem;
+  font-weight: 400;
+  color: #161619;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+}
+.banner-right {
+  flex: 0 0 auto;
+  width: 50%;
+}
+.banner-right img {
+  max-width: 100%;
+  height: auto;
+}
