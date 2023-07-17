@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <div>
+    <div className="banner" style={{ backgroundImage: `url(/banner-bg.jpg)` }}>
       <h2>Home</h2>
     </div>
   );
