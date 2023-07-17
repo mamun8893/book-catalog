@@ -85,3 +85,46 @@ body {
   max-width: 100%;
   height: auto;
 }
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.book-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.book-item {
+  padding: 1.875rem !important;
+  flex: 0 0 20%;
+  position: relative;
+  border: 1px solid #eae8e4;
+  transition: all 0.3s ease-in-out;
+}
+.book-item:hover {
+  box-shadow: 0 0 40px 0 rgba(22, 22, 25, 0.1);
+  border: 1px solid #333;
+}
+.book-item img {
+  margin: auto;
+  display: block;
+}
+.book-item img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.book-item .genere {
+  color: #f30b0b;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.book-item h4 {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.book-item p {
+  margin: 0px;
+}
