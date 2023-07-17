@@ -94,13 +94,15 @@ body {
   flex-wrap: wrap;
 }
 .book-item {
-  padding: 1.875rem !important;
   flex: 0 0 20%;
+}
+.item-wrap {
   position: relative;
   border: 1px solid #eae8e4;
   transition: all 0.3s ease-in-out;
+  padding: 1.875rem !important;
 }
-.book-item:hover {
+.book-item:hover .item-wrap {
   box-shadow: 0 0 40px 0 rgba(22, 22, 25, 0.1);
   border: 1px solid #333;
 }
@@ -127,4 +129,56 @@ body {
 }
 .book-item p {
   margin: 0px;
+}
+.recent-book {
+  padding: 60px 0px;
+}
+.copyright {
+  padding: 20px 0px;
+  text-align: center;
+  border-top: 1px solid #eae8e4 !important;
+}
+
+.auth-wrap {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 40px 30px;
+  box-shadow: 0 0 40px 0 rgba(22, 22, 25, 0.1);
+  margin-top: 50px;
+}
+.auth-wrap h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #161619;
+  margin-bottom: 8px;
+  display: block;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.form-group input {
+  padding: 0.844rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #7c6e65;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #dfdcd7;
+}
+.auth-wrap button {
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  border: none;
+  color: #fff;
+  cursor: pointer;
 }

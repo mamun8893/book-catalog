@@ -31,83 +31,98 @@ const Home = () => {
           </div>
           <div className="book-wrapper">
             <div className="book-item">
-              <div className="img">
-                <img
-                  src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
-                  alt="book"
-                />
-              </div>
-              <div className="content">
-                <p className="genere">Fiction</p>
-                <h4>
-                  Think Like a Monk: Train Your Mind for Peace and Purpose
-                  Everyday
-                </h4>
-                <p>Joy Shetty</p>
-              </div>
-            </div>
-            <div className="book-item">
-              <div className="img">
-                <img
-                  src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
-                  alt="book"
-                />
-              </div>
-              <div className="content">
-                <p className="genere">Fiction</p>
-                <h4>
-                  Think Like a Monk: Train Your Mind for Peace and Purpose
-                  Everyday
-                </h4>
-                <p>Joy Shetty</p>
+              <div className="item-wrap">
+                <div className="img">
+                  <img
+                    src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
+                    alt="book"
+                  />
+                </div>
+                <div className="content">
+                  <p className="genere">Fiction</p>
+                  <h4>
+                    Think Like a Monk: Train Your Mind for Peace and Purpose
+                    Everyday
+                  </h4>
+                  <p>Joy Shetty</p>
+                  <p>20 july 2023</p>
+                </div>
               </div>
             </div>
             <div className="book-item">
-              <div className="img">
-                <img
-                  src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
-                  alt="book"
-                />
-              </div>
-              <div className="content">
-                <p className="genere">Fiction</p>
-                <h4>
-                  Think Like a Monk: Train Your Mind for Peace and Purpose
-                  Everyday
-                </h4>
-                <p>Joy Shetty</p>
-              </div>
-            </div>
-            <div className="book-item">
-              <div className="img">
-                <img
-                  src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
-                  alt="book"
-                />
-              </div>
-              <div className="content">
-                <p className="genere">Fiction</p>
-                <h4>
-                  Think Like a Monk: Train Your Mind for Peace and Purpose
-                  Everyday
-                </h4>
-                <p>Joy Shetty</p>
+              <div className="item-wrap">
+                <div className="img">
+                  <img
+                    src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
+                    alt="book"
+                  />
+                </div>
+                <div className="content">
+                  <p className="genere">Fiction</p>
+                  <h4>
+                    Think Like a Monk: Train Your Mind for Peace and Purpose
+                    Everyday
+                  </h4>
+                  <p>Joy Shetty</p>
+                  <p>20 july 2023</p>
+                </div>
               </div>
             </div>
             <div className="book-item">
-              <div className="img">
-                <img
-                  src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
-                  alt="book"
-                />
+              <div className="item-wrap">
+                <div className="img">
+                  <img
+                    src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
+                    alt="book"
+                  />
+                </div>
+                <div className="content">
+                  <p className="genere">Fiction</p>
+                  <h4>
+                    Think Like a Monk: Train Your Mind for Peace and Purpose
+                    Everyday
+                  </h4>
+                  <p>Joy Shetty</p>
+                  <p>20 july 2023</p>
+                </div>
               </div>
-              <div className="content">
-                <p className="genere">Fiction</p>
-                <h4>
-                  Think Like a Monk: Train Your Mind for Peace and Purpose
-                  Everyday
-                </h4>
-                <p>Joy Shetty</p>
+            </div>
+            <div className="book-item">
+              <div className="item-wrap">
+                <div className="img">
+                  <img
+                    src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
+                    alt="book"
+                  />
+                </div>
+                <div className="content">
+                  <p className="genere">Fiction</p>
+                  <h4>
+                    Think Like a Monk: Train Your Mind for Peace and Purpose
+                    Everyday
+                  </h4>
+                  <p>Joy Shetty</p>
+                  <p>20 july 2023</p>
+                </div>
+              </div>
+            </div>
+            <div className="book-item">
+              <div className="item-wrap">
+                <div className="img">
+                  <img
+                    src="https://demo2.madrasthemes.com/bookworm-html/redesigned-octo-fiesta/assets/img/120x180/img1.jpg"
+                    alt="book"
+                  />
+                </div>
+                <div className="content">
+                  <p className="genere">Fiction</p>
+                  <h4>
+                    Think Like a Monk: Train Your Mind for Peace and Purpose
+                    Everyday
+                  </h4>
+                  <p>Joy Shetty</p>
+                  <p>20 july 2023</p>
+                </div>
               </div>
             </div>
           </div>
