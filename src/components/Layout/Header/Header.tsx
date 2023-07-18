@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { userLoggedOut } from "../../../redux/features/auth/authSlice";
 
 const Header = () => {
   const { user } = useAppSelector((state) => state.auth);
-  console.log(user);
+  const dispatch = useAppDispatch();
 
   return (
     <header>
@@ -39,7 +40,9 @@ const Header = () => {
               </li>
               {user ? (
                 <li>
-                  <a href="#">Logout</a>
+                  <a href="#" onClick={() => dispatch(userLoggedOut())}>
+                    Logout
+                  </a>
                 </li>
               ) : (
                 <li>

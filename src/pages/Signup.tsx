@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { Link, Navigate, useNavigate, useRoutes } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useSignupMutation } from "../redux/features/auth/authApi";
 import { useEffect } from "react";
@@ -26,13 +26,9 @@ const Signup = () => {
 
   //handle mutation
 
-  const [signup, { data: loginData, isSuccess, error, isError }] =
-    useSignupMutation();
-
-  console.log(loginData, error, isSuccess);
+  const [signup, { isSuccess, error, isError }] = useSignupMutation();
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-    console.log(data);
     const { name, email, password } = data;
     signup({
       name,
