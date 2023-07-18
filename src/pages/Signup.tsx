@@ -1,6 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate, useRoutes } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useSignupMutation } from "../redux/features/auth/authApi";
+import { useEffect } from "react";
+import { toastError, toastSuccess } from "../utils/helper";
 
 type Inputs = {
   name: string;
@@ -9,15 +15,42 @@ type Inputs = {
 };
 
 const Signup = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+
+  //handle mutation
+
+  const [signup, { data: loginData, isSuccess, error, isError }] =
+    useSignupMutation();
+
+  console.log(loginData, error, isSuccess);
+
+  const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     console.log(data);
+    const { name, email, password } = data;
+    signup({
+      name,
+      email,
+      password,
+    });
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toastSuccess("Signup Successfull");
+      reset();
+      navigate("/");
+    } else if (isError) {
+      const { data } = error as any;
+      toastError(data);
+    }
+  }, [isSuccess, isError]);
   return (
     <div className="auth-wrap">
       <form onSubmit={handleSubmit(onSubmit)}>

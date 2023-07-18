@@ -1,4 +1,10 @@
+import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../redux/hooks";
+
 const Header = () => {
+  const { user } = useAppSelector((state) => state.auth);
+  console.log(user);
+
   return (
     <header>
       <div className="container">
@@ -26,14 +32,20 @@ const Header = () => {
           <div className="ic-header-menu">
             <ul>
               <li>
-                <a href="#">All Books</a>
+                <Link to="#">All Books</Link>
               </li>
               <li>
-                <a href="#">Login</a>
+                <Link to="/signup">Sign up</Link>
               </li>
-              <li>
-                <a href="#">Sign up</a>
-              </li>
+              {user ? (
+                <li>
+                  <a href="#">Logout</a>
+                </li>
+              ) : (
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
