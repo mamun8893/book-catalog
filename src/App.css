@@ -121,7 +121,9 @@ header {
   margin: auto;
   margin-bottom: 20px;
 }
-
+.book-item a {
+  text-decoration: none;
+}
 .book-item .genere {
   color: #f30b0b;
   text-decoration: none;
@@ -135,9 +137,11 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 200px;
+  color: #161619;
 }
 .book-item p {
   margin: 0px;
+  color: #161619;
 }
 .recent-book {
   padding: 60px 0px;
@@ -238,4 +242,13 @@ header {
 }
 .book-details {
   padding: 80px 0px;
+}
+.book-details-card {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 40px 30px;
+  box-shadow: 0 0 40px 0 rgba(22, 22, 25, 0.1);
+  margin-top: 0px;
+  text-align: center;
 }

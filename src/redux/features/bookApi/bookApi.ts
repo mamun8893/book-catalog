@@ -35,7 +35,7 @@ const bookApi = apiSlice.injectEndpoints({
       },
     }),
     getSingleBook: builder.query({
-      query: (id: number) => ({
+      query: (id: string) => ({
         url: `/books/${id}`,
       }),
     }),
