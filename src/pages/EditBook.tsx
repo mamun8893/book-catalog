@@ -11,6 +11,8 @@ import {
 } from "../redux/features/bookApi/bookApi";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { toastError, toastSuccess } from "../utils/helper";
+import { useAppSelector } from "../redux/hooks";
 
 type Inputs = {
   title: string;
@@ -31,6 +33,7 @@ const EditBook = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
+  const { user } = useAppSelector((state) => state.auth);
   const { id } = useParams<{ id: string }>();
 
   const { data, isSuccess } = useGetSingleBookQuery(id!);
@@ -42,26 +45,28 @@ const EditBook = () => {
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     const { title, author, genre, publicationDate, image } = data;
     const year = publicationDate.split("-")[0];
-
-    // addBook({
-    //   title,
-    //   author,
-    //   genre,
-    //   publicationDate,
-    //   user: user?.email,
-    //   image,
-    //   year,
-    // });
+    updateBook({
+      id: id!,
+      data: {
+        title,
+        author,
+        genre,
+        publicationDate,
+        image,
+        user: user?.email,
+        year,
+      },
+    });
   };
 
-  //   useEffect(() => {
-  //     if (isSuccess) {
-  //       reset();
-  //       toastSuccess("Book Edit Successfully");
-  //     } else if (isError) {
-  //       toastError("Something went wrong");
-  //     }
-  //   }, [isSuccess, isError, error]);
+  useEffect(() => {
+    if (updateSuccess) {
+      reset();
+      toastSuccess("Book Update Successfully");
+    } else if (isError) {
+      toastError("Something went wrong");
+    }
+  }, [updateSuccess, isError, error]);
 
   useEffect(() => {
     setValue("title", data?.title);
