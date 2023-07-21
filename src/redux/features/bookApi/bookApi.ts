@@ -18,10 +18,16 @@ const bookApi = apiSlice.injectEndpoints({
       }),
     }),
     getAllBooks: builder.query({
-      query: ({ search }) => {
+      query: ({ search, genre, year }) => {
         let queryString = "";
         if (search) {
           queryString += `q=${search}`;
+        }
+        if (genre) {
+          queryString += `&genre=${genre}`;
+        }
+        if (year) {
+          queryString += `&year=${year}`;
         }
         return {
           url: `/books?${queryString}`,

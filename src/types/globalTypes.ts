@@ -7,4 +7,5 @@ export interface IBook {
   id?: number;
   user?: string;
   image?: string;
+  year?: string;
 }

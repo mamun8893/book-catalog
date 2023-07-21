@@ -203,6 +203,9 @@ header {
 
 .filter-wrap {
   padding: 40px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .filter-wrap .search input {
@@ -214,4 +217,19 @@ header {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #dfdcd7;
+}
+.filter-wrap select {
+  padding: 0.844rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #7c6e65;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #dfdcd7;
+}
+.filter-wrap .filter {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

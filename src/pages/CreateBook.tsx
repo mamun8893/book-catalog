@@ -29,6 +29,7 @@ const CreateBook = () => {
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     const { title, author, genre, publicationDate, image } = data;
+    const year = publicationDate.split("-")[0];
 
     addBook({
       title,
@@ -37,6 +38,7 @@ const CreateBook = () => {
       publicationDate,
       user: user?.email,
       image,
+      year,
     });
   };
 
