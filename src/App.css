@@ -276,3 +276,6 @@ header {
 .edit-delete-btn .delete {
   background-color: #f30b0b;
 }
+.review-item {
+  border-bottom: 1px solid #eae8e4;
+}

@@ -56,7 +56,7 @@ const bookApi = apiSlice.injectEndpoints({
     }),
     getReviews: builder.query({
       query: (id: string) => ({
-        url: `/reviews/${id}`,
+        url: `/reviews?${id}`,
       }),
     }),
     addReview: builder.mutation({
@@ -76,4 +76,5 @@ export const {
   useGetSingleBookQuery,
   useDeleteBookMutation,
   useUpdateBookMutation,
+  useGetReviewsQuery,
 } = bookApi;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -5,6 +6,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   useDeleteBookMutation,
+  useGetReviewsQuery,
   useGetSingleBookQuery,
 } from "../redux/features/bookApi/bookApi";
 import { useAppSelector } from "../redux/hooks";
@@ -14,7 +16,9 @@ const BookDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data } = useGetSingleBookQuery(id!);
   const { user } = useAppSelector((state) => state.auth);
-  console.log(user);
+
+  const { data: getReviews } = useGetReviewsQuery(id!);
+  console.log(getReviews);
 
   const [deleteBook] = useDeleteBookMutation();
   const navigate = useNavigate();
@@ -55,6 +59,16 @@ const BookDetails = () => {
               </button>
             </div>
           )}
+        </div>
+        <div className="book-reviews">
+          <h3>Reviews</h3>
+          <div className="reviews-wrap">
+            {getReviews?.map((review: any) => (
+              <div className="review-item">
+                <h5>{review?.comment}</h5>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
