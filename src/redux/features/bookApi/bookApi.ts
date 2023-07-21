@@ -54,6 +54,18 @@ const bookApi = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    getReviews: builder.query({
+      query: (id: string) => ({
+        url: `/reviews/${id}`,
+      }),
+    }),
+    addReview: builder.mutation({
+      query: (data) => ({
+        url: `/reviews`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
