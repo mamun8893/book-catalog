@@ -233,3 +233,9 @@ header {
   align-items: center;
   gap: 20px;
 }
+.all-books {
+  margin-bottom: 40px;
+}
+.book-details {
+  padding: 80px 0px;
+}

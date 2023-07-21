@@ -37,7 +37,7 @@ const Header = () => {
           <div className="ic-header-menu">
             <ul>
               <li>
-                <Link to="#">All Books</Link>
+                <Link to="/all-books">All Books</Link>
               </li>
               <li>
                 <Link to="/signup">Sign up</Link>
