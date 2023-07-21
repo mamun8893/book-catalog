@@ -1,14 +1,40 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { useParams } from "react-router-dom";
-import { useGetSingleBookQuery } from "../redux/features/bookApi/bookApi";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  useDeleteBookMutation,
+  useGetSingleBookQuery,
+} from "../redux/features/bookApi/bookApi";
 import { useAppSelector } from "../redux/hooks";
+import Swal from "sweetalert2";
 
 const BookDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data } = useGetSingleBookQuery(id!);
   const { user } = useAppSelector((state) => state.auth);
   console.log(user);
+
+  const [deleteBook] = useDeleteBookMutation();
+  const navigate = useNavigate();
+  const handleDelete = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteBook(id!);
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        navigate("/all-books");
+      }
+    });
+  };
 
   return (
     <div className="book-details">
@@ -21,8 +47,12 @@ const BookDetails = () => {
           <p>{data?.publicationDate}</p>
           {user?.email === data?.user && (
             <div className="edit-delete-btn">
-              <button className="btn">Edit</button>
-              <button className="btn">Delete</button>
+              <Link to={`/edit-book/${id}`}>
+                <button className="btn">Edit</button>
+              </Link>
+              <button className="btn delete" onClick={handleDelete}>
+                Delete
+              </button>
             </div>
           )}
         </div>

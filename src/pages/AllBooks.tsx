@@ -1,17 +1,19 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { Link } from "react-router-dom";
 import BookItem from "../components/BookItem/BookItem";
 import { useGetAllBooksQuery } from "../redux/features/bookApi/bookApi";
 import { IBook } from "../types/globalTypes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const AllBooks = () => {
   const [search, setSearch] = useState("");
   const [genre, setGenre] = useState("");
   const [year, setYear] = useState("");
-  const { data: books } = useGetAllBooksQuery({ search, genre, year });
+  const { data: books, refetch } = useGetAllBooksQuery({ search, genre, year });
 
   let content = null;
   if (books?.length === 0) {
@@ -21,6 +23,10 @@ const AllBooks = () => {
       <BookItem key={book.id} book={book} />
     ));
   }
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   return (
     <div>
@@ -60,6 +66,9 @@ const AllBooks = () => {
                 <option value="2016">2016</option>
                 <option value="2015">2015</option>
               </select>
+              <Link to="/create-book">
+                <button>Add Book</button>
+              </Link>
             </div>
           </div>
           <div className="book-wrapper">{content}</div>

@@ -232,6 +232,14 @@ header {
   background-clip: padding-box;
   border: 1px solid #dfdcd7;
 }
+.filter-wrap button {
+  background-color: #161619;
+  height: 50px;
+  color: #fff;
+  padding: 0px 40px;
+  border: none;
+  cursor: pointer;
+}
 .filter-wrap .filter {
   display: flex;
   align-items: center;
@@ -251,4 +259,20 @@ header {
   box-shadow: 0 0 40px 0 rgba(22, 22, 25, 0.1);
   margin-top: 0px;
   text-align: center;
+}
+
+.edit-delete-btn button {
+  height: 44px;
+  padding: 0px 20px;
+  background-color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.edit-delete-btn .delete {
+  background-color: #f30b0b;
 }

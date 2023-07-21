@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
+
 import { IBook } from "../../../types/globalTypes";
 import { apiSlice } from "../api/apiSlice";
 
@@ -39,6 +41,19 @@ const bookApi = apiSlice.injectEndpoints({
         url: `/books/${id}`,
       }),
     }),
+    deleteBook: builder.mutation({
+      query: (id: string) => ({
+        url: `/books/${id}`,
+        method: "DELETE",
+      }),
+    }),
+    updateBook: builder.mutation({
+      query: ({ id, data }) => ({
+        url: `/books/${id}`,
+        method: "PUT",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -47,4 +62,6 @@ export const {
   useGetLatestBooksQuery,
   useGetAllBooksQuery,
   useGetSingleBookQuery,
+  useDeleteBookMutation,
+  useUpdateBookMutation,
 } = bookApi;
