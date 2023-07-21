@@ -14,7 +14,7 @@ import {
 import { useAppSelector } from "../redux/hooks";
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
-import { toastSuccess } from "../utils/helper";
+import { toastError, toastSuccess } from "../utils/helper";
 
 const BookDetails = () => {
   const [comment, setComment] = useState("");
@@ -23,7 +23,6 @@ const BookDetails = () => {
   const { user } = useAppSelector((state) => state.auth);
 
   const { data: getReviews, refetch } = useGetReviewsQuery(id!);
-  console.log(getReviews);
 
   const [deleteBook] = useDeleteBookMutation();
   const [addReview, { isSuccess }] = useAddReviewMutation();
@@ -47,10 +46,14 @@ const BookDetails = () => {
   };
 
   const handleReview = () => {
-    addReview({
-      bookId: id!,
-      comment,
-    });
+    if (!user) {
+      toastError("Please Login First");
+    } else {
+      addReview({
+        bookId: id!,
+        comment,
+      });
+    }
   };
 
   useEffect(() => {

@@ -39,8 +39,6 @@ const EditBook = () => {
   const [updateBook, { isSuccess: updateSuccess, isError, error }] =
     useUpdateBookMutation();
 
-  console.log(data);
-
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
     const { title, author, genre, publicationDate, image } = data;
     const year = publicationDate.split("-")[0];

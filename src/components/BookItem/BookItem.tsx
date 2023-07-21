@@ -6,7 +6,6 @@ interface IProps {
   book: IBook;
 }
 const BookItem = ({ book }: IProps) => {
-  console.log(book);
   const { id, title, author, genre, image, publicationDate } = book;
 
   return (
