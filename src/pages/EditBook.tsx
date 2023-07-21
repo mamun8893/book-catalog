@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 
-import { useForm, SubmitHandler, set } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import {
   useGetSingleBookQuery,
   useUpdateBookMutation,
@@ -27,7 +27,6 @@ const EditBook = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     setValue,
     formState: { errors },

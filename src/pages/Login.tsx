@@ -18,18 +18,15 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm<Inputs>();
 
   //handle mutation
 
-  const [login, { data: loginData, isSuccess, error, isError }] =
-    useLoginMutation();
+  const [login, { isSuccess, error, isError }] = useLoginMutation();
 
   const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-    console.log(data);
     const { email, password } = data;
     login({
       email,

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import useAuth from "../hooks/useAuth";
 
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface IProps {
   children: ReactNode;
