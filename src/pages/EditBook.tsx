@@ -5,7 +5,10 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
 
 import { useForm, SubmitHandler, set } from "react-hook-form";
-import { useGetSingleBookQuery } from "../redux/features/bookApi/bookApi";
+import {
+  useGetSingleBookQuery,
+  useUpdateBookMutation,
+} from "../redux/features/bookApi/bookApi";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -31,6 +34,8 @@ const EditBook = () => {
   const { id } = useParams<{ id: string }>();
 
   const { data, isSuccess } = useGetSingleBookQuery(id!);
+  const [updateBook, { isSuccess: updateSuccess, isError, error }] =
+    useUpdateBookMutation();
 
   console.log(data);
 
