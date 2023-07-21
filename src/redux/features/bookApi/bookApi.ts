@@ -77,4 +77,5 @@ export const {
   useDeleteBookMutation,
   useUpdateBookMutation,
   useGetReviewsQuery,
+  useAddReviewMutation,
 } = bookApi;

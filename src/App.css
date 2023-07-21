@@ -279,3 +279,31 @@ header {
 .review-item {
   border-bottom: 1px solid #eae8e4;
 }
+.add-review-form {
+  margin-top: 40px;
+}
+.add-review-form textarea {
+  padding: 0.844rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #7c6e65;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #dfdcd7;
+  display: block;
+  width: 40%;
+}
+.add-review-form button {
+  height: 44px;
+  padding: 0px 20px;
+  background-color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}

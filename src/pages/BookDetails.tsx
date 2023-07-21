@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-floating-promises */
@@ -5,22 +6,27 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
+  useAddReviewMutation,
   useDeleteBookMutation,
   useGetReviewsQuery,
   useGetSingleBookQuery,
 } from "../redux/features/bookApi/bookApi";
 import { useAppSelector } from "../redux/hooks";
 import Swal from "sweetalert2";
+import { useState, useEffect } from "react";
+import { toastSuccess } from "../utils/helper";
 
 const BookDetails = () => {
+  const [comment, setComment] = useState("");
   const { id } = useParams<{ id: string }>();
   const { data } = useGetSingleBookQuery(id!);
   const { user } = useAppSelector((state) => state.auth);
 
-  const { data: getReviews } = useGetReviewsQuery(id!);
+  const { data: getReviews, refetch } = useGetReviewsQuery(id!);
   console.log(getReviews);
 
   const [deleteBook] = useDeleteBookMutation();
+  const [addReview, { isSuccess }] = useAddReviewMutation();
   const navigate = useNavigate();
   const handleDelete = () => {
     Swal.fire({
@@ -39,6 +45,21 @@ const BookDetails = () => {
       }
     });
   };
+
+  const handleReview = () => {
+    addReview({
+      bookId: id!,
+      comment,
+    });
+  };
+
+  useEffect(() => {
+    if (isSuccess) {
+      setComment("");
+      refetch();
+      toastSuccess("Review Added Successfully");
+    }
+  }, [isSuccess]);
 
   return (
     <div className="book-details">
@@ -68,6 +89,13 @@ const BookDetails = () => {
                 <h5>{review?.comment}</h5>
               </div>
             ))}
+          </div>
+          <div className="add-review-form">
+            <textarea
+              onChange={(e) => setComment(e.target.value)}
+              value={comment}
+            ></textarea>
+            <button onClick={handleReview}>Add Reviews</button>
           </div>
         </div>
       </div>
