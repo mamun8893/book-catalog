@@ -6,6 +6,10 @@ const Header = () => {
   const { user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
 
+  const handleLogout = () => {
+    dispatch(userLoggedOut());
+    localStorage.removeItem("auth");
+  };
   return (
     <header>
       <div className="container">
@@ -40,7 +44,7 @@ const Header = () => {
               </li>
               {user ? (
                 <li>
-                  <a href="#" onClick={() => dispatch(userLoggedOut())}>
+                  <a href="#" onClick={handleLogout}>
                     Logout
                   </a>
                 </li>

@@ -6,6 +6,14 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_URL,
+    prepareHeaders: (headers) => {
+      const auth = localStorage.getItem("auth");
+      const token: string = auth ? JSON.parse(auth).accessToken : null;
+      if (token) {
+        headers.set("authorization", `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
 
   tagTypes: [],

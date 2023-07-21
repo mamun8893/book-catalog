@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 body {
   font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 .container {
   max-width: 1320px;
   margin: 0 auto;
+}
+header {
+  border-bottom: 1px solid #eae8e4;
 }
 .ic-header-wrapper {
   display: flex;
@@ -126,6 +131,10 @@ body {
 .book-item h4 {
   margin: 0px;
   margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 .book-item p {
   margin: 0px;
@@ -186,4 +195,23 @@ body {
   border: none;
   color: #fff;
   cursor: pointer;
+}
+
+.create-book {
+  padding-bottom: 40px;
+}
+
+.filter-wrap {
+  padding: 40px 0px;
+}
+
+.filter-wrap .search input {
+  padding: 0.844rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #7c6e65;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #dfdcd7;
 }
